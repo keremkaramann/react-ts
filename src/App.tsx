@@ -1,7 +1,11 @@
+import PostList from "./components/PostList";
+import UserList from "./components/UserList";
+
 function App() {
   return (
     <div>
-      <h1 className="text-3xl font-bold underline bg-red-900">Hello world!</h1>
+      <UserList />
+      <PostList />
     </div>
   );
 }
