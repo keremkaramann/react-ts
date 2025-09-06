@@ -2,9 +2,10 @@ import type { User } from "../types";
 
 interface UserCardProps {
   user: User;
+  onDelete: (id: number) => void;
 }
 
-const UserCard: React.FC<UserCardProps> = ({ user }) => {
+const UserCard: React.FC<UserCardProps> = ({ user, onDelete }) => {
   return (
     <div className="bg-white shadow-lg rounded-lg p-4 w-80">
       <h2 className="text-xl font-bold mb-2">{user.name}</h2>
@@ -25,7 +26,10 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
         <button className="bg-blue-400 text-white px-3 py-1 rounded hover:bg-blue-600 cursor-pointer transition-colors duration-500">
           Edit
         </button>
-        <button className="bg-red-400 text-white px-3 py-1 rounded hover:bg-red-600 cursor-pointer transition-colors duration-500">
+        <button
+          onClick={() => onDelete(user.id)}
+          className="bg-red-400 text-white px-3 py-1 rounded hover:bg-red-600 cursor-pointer transition-colors duration-500"
+        >
           Delete
         </button>
       </div>
