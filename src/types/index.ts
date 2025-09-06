@@ -3,7 +3,11 @@ export interface User {
   name: string;
   username: string;
   email: string;
-  company: string;
+  company: {
+    name: string;
+    catchPhrase: string;
+    bs: string;
+  };
 }
 
 export interface Post {
