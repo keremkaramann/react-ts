@@ -6,7 +6,7 @@ interface UserCardProps {
 
 const UserCard: React.FC<UserCardProps> = ({ user }) => {
   return (
-    <div className="bg-white shadow-md rounded-lg p-4 w-80">
+    <div className="bg-white shadow-lg rounded-lg p-4 w-80">
       <h2 className="text-xl font-bold mb-2">{user.name}</h2>
       <div className="flex gap-2">
         <p className="text-gray-600 font-medium">Username: </p>
@@ -22,10 +22,10 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
       </div>
 
       <div className="flex justify-between">
-        <button className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 cursor-pointer">
+        <button className="bg-blue-400 text-white px-3 py-1 rounded hover:bg-blue-600 cursor-pointer transition-colors duration-500">
           Edit
         </button>
-        <button className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 cursor-pointer">
+        <button className="bg-red-400 text-white px-3 py-1 rounded hover:bg-red-600 cursor-pointer transition-colors duration-500">
           Delete
         </button>
       </div>
