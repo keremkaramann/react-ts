@@ -3,6 +3,7 @@ import type { User } from "../types";
 import { fetchUsers } from "../services/api";
 import { useEffect, useState } from "react";
 import AddNewUser from "./AddNewUser";
+import { Link } from "react-router-dom";
 
 const UserList = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -28,6 +29,12 @@ const UserList = () => {
 
   return (
     <div>
+      <Link
+        to="/"
+        className=" m-2 text-xl bg-indigo-400 text-white px-3 py-3 rounded hover:bg-indigo-600 cursor-pointer transition-colors duration-500"
+      >
+        Go Back to Home Page
+      </Link>
       <h1 className="text-center m-5 font-bold text-3xl">User List</h1>
       <div className="flex justify-center m-2">
         <AddNewUser users={users} setUsers={setUsers} />

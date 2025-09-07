@@ -12,7 +12,7 @@ const ErrorPage = () => {
         to="/"
         className="bg-indigo-400 text-white px-3 py-1 rounded hover:bg-indigo-600 cursor-pointer transition-colors duration-500"
       >
-        Go Back to HomePage
+        Go Back to Home Page
       </Link>
     </div>
   );
