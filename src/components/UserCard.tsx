@@ -14,7 +14,6 @@ const UserCard: React.FC<UserCardProps> = ({ user, onDelete, onEdit }) => {
     name: user.name,
     username: user.username,
     email: user.email,
-    companyName: user.company.name,
   });
 
   const handleSave = () => {
@@ -23,7 +22,6 @@ const UserCard: React.FC<UserCardProps> = ({ user, onDelete, onEdit }) => {
       name: formData.name,
       username: formData.username,
       email: formData.email,
-      company: { ...user.company, name: formData.companyName },
     };
     onEdit(updateUser);
     setIsEditing(false);
@@ -79,37 +77,24 @@ const UserCard: React.FC<UserCardProps> = ({ user, onDelete, onEdit }) => {
               setFormData({ ...formData, email: e.target.value })
             }
           />
-          <label
-            htmlFor="company"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Company:
-          </label>
-          <input
-            type="text"
-            id="company"
-            name="company"
-            className="border-1 p-1 rounded m-1"
-            value={formData.companyName}
-            onChange={(e) =>
-              setFormData({ ...formData, companyName: e.target.value })
-            }
-          />
         </>
       ) : (
         <>
-          <h2 className="text-xl font-bold mb-2">{user.name}</h2>
           <div className="flex gap-2">
-            <p className="text-gray-600 font-medium">Username: </p>
+            <p className="text-gray-600 font-bold">User Name: </p>
+            <p className="mb-2">{user.name}</p>
+          </div>
+          <div className="flex gap-2">
+            <p className="text-gray-600 font-bold">User Id: </p>
+            <p className="text-gray-600 ">{user.id}</p>
+          </div>
+          <div className="flex gap-2">
+            <p className="text-gray-600 font-bold">Username: </p>
             <p className="text-gray-600">{user.username}</p>
           </div>
-          <div className="flex gap-2">
-            <p className="text-gray-600 font-medium">Email:</p>
+          <div className="flex gap-2 mb-2">
+            <p className="text-gray-600 font-bold">Email:</p>
             <p className="text-gray-600">{user.email}</p>
-          </div>
-          <div className="flex gap-2">
-            <p className="text-gray-600 mb-4 font-medium">Company:</p>
-            <p className="text-gray-600">{user.company.name}</p>
           </div>
         </>
       )}

@@ -10,10 +10,9 @@ const AddNewUser: React.FC<Props> = ({ users, setUsers }) => {
   const [name, setName] = useState<string>("");
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [companyName, setCompanyName] = useState<string>("");
 
   const handleCreate = () => {
-    if (!name || !username || !email || !companyName) {
+    if (!name || !username || !email) {
       alert("All fields are required!");
       return;
     }
@@ -22,13 +21,11 @@ const AddNewUser: React.FC<Props> = ({ users, setUsers }) => {
       name,
       username,
       email,
-      company: { name: companyName, catchPhrase: "", bs: "" },
     };
-    setUsers([...users, newUser]);
+    setUsers([newUser, ...users]);
     setName("");
     setUsername("");
     setEmail("");
-    setCompanyName("");
   };
 
   return (
@@ -51,12 +48,6 @@ const AddNewUser: React.FC<Props> = ({ users, setUsers }) => {
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        className="w-full mb-4 p-2 border border-gray-300 rounded"
-        placeholder="Company"
-        value={companyName}
-        onChange={(e) => setCompanyName(e.target.value)}
       />
       <button
         onClick={handleCreate}

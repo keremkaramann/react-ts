@@ -18,7 +18,6 @@ const PostCard: React.FC<PostCardProps> = ({
 
   const [formData, setFormData] = useState({
     title: posts.title,
-    body: posts.body,
     user: userName,
   });
 
@@ -26,7 +25,6 @@ const PostCard: React.FC<PostCardProps> = ({
     const updatePost: Post = {
       ...posts,
       title: formData.title,
-      body: formData.body,
       user: formData.user,
     };
     onEdit(updatePost);
@@ -54,20 +52,6 @@ const PostCard: React.FC<PostCardProps> = ({
             }
           />
           <label
-            htmlFor="body"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Body:
-          </label>
-          <input
-            type="text"
-            id="body"
-            name="body"
-            className="border-1 p-1 rounded m-1 w-full"
-            value={formData.body}
-            onChange={(e) => setFormData({ ...formData, body: e.target.value })}
-          />
-          <label
             htmlFor="user"
             className="block text-sm font-medium text-gray-700"
           >
@@ -86,13 +70,19 @@ const PostCard: React.FC<PostCardProps> = ({
         <>
           <h2 className="text-xl font-bold mb-2"> Title: {posts.title}</h2>
           <div className="flex gap-2">
-            <p className="text-gray-600 font-medium">Body: </p>
-            <p className="text-gray-600">{posts.body}</p>
+            <p className="text-gray-600 font-bold">User:</p>
+            <p className="text-gray-600">
+              {formData.user ?? "Unknown User"}{" "}
+              <span className="font-medium">(User Id:{posts.userId})</span>
+            </p>
           </div>
-
           <div className="flex gap-2">
-            <p className="text-gray-600 font-medium">User:</p>
-            <p className="text-gray-600">{formData.user ?? "Unknown User"}</p>
+            <p className="text-gray-600 font-bold">Post Id: </p>
+            <p className="text-gray-600 ">{posts.id}</p>
+          </div>
+          <div className="flex gap-2">
+            <p className="text-gray-600 font-bold">User Id: </p>
+            <p className="text-gray-600 ">{posts.userId}</p>
           </div>
         </>
       )}
