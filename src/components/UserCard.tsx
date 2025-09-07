@@ -33,30 +33,62 @@ const UserCard: React.FC<UserCardProps> = ({ user, onDelete, onEdit }) => {
     <div className="bg-white shadow-lg rounded-lg p-4 w-80">
       {isEditing ? (
         <>
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Name:
+          </label>
           <input
             type="text"
+            id="name"
+            name="name"
             className="border-1 p-1 rounded m-1"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           />
+          <label
+            htmlFor="username"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Username:
+          </label>
           <input
             type="text"
+            id="username"
+            name="username"
             className="border-1 p-1 rounded m-1"
             value={formData.username}
             onChange={(e) =>
               setFormData({ ...formData, username: e.target.value })
             }
           />
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Email:
+          </label>
           <input
-            type="text"
+            type="email"
+            id="email"
+            name="email"
             className="border-1 p-1 rounded m-1"
             value={formData.email}
             onChange={(e) =>
               setFormData({ ...formData, email: e.target.value })
             }
           />
+          <label
+            htmlFor="company"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Company:
+          </label>
           <input
             type="text"
+            id="company"
+            name="company"
             className="border-1 p-1 rounded m-1"
             value={formData.companyName}
             onChange={(e) =>

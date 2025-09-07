@@ -35,17 +35,33 @@ const PostCard: React.FC<PostCardProps> = ({
     <div className="bg-white shadow-lg rounded-lg p-4 w-3xl">
       {isEditing ? (
         <>
+          <label
+            htmlFor="title"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Title:
+          </label>
           <input
             type="text"
-            className="border-1 p-1 rounded m-1"
+            id="title"
+            name="title"
+            className="border-1 p-1 rounded m-1 w-full"
             value={formData.title}
             onChange={(e) =>
               setFormData({ ...formData, title: e.target.value })
             }
           />
+          <label
+            htmlFor="body"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Body:
+          </label>
           <input
             type="text"
-            className="border-1 p-1 rounded m-1"
+            id="body"
+            name="body"
+            className="border-1 p-1 rounded m-1 w-full"
             value={formData.body}
             onChange={(e) => setFormData({ ...formData, body: e.target.value })}
           />
