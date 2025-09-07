@@ -7,11 +7,12 @@ import AddNewUser from "./AddNewUser";
 const UserList = () => {
   const [users, setUsers] = useState<User[]>([]);
 
+  const getUsers = async () => {
+    const data = await fetchUsers();
+    setUsers(data);
+  };
+
   useEffect(() => {
-    const getUsers = async () => {
-      const data = await fetchUsers();
-      setUsers(data);
-    };
     getUsers();
   }, []);
 
@@ -34,7 +35,15 @@ const UserList = () => {
       <div className="border-2 w-xl m-auto"></div>
       <div className="m-7 flex flex-wrap justify-center gap-9">
         {users.length === 0 ? (
-          <p className="text-gray-500 text-xl">There is no user!</p>
+          <div>
+            <p className="text-gray-500 text-xl mb-1">There is no user left!</p>
+            <button
+              onClick={getUsers}
+              className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-800 cursor-pointer transition-colors duration-500"
+            >
+              Fetch Users
+            </button>
+          </div>
         ) : (
           users.map((user) => (
             <UserCard
