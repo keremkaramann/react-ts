@@ -3,6 +3,7 @@ import type { Post, User } from "../types";
 import { useEffect, useState } from "react";
 import { fetchPosts, fetchUsers } from "../services/api";
 import PostCard from "./PostCard";
+import AddNewPost from "./AddNewPost";
 
 const PostList = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -38,7 +39,12 @@ const PostList = () => {
       >
         Go Back to Home Page
       </Link>
+
       <h1 className="text-center m-5 font-bold text-3xl">Post List</h1>
+
+      <div className="flex justify-center m-2">
+        <AddNewPost posts={posts} setPosts={setPosts} />
+      </div>
       <div className="border-2 w-xl m-auto"></div>
       <div className="m-7 flex flex-wrap justify-center gap-9">
         {posts.length === 0 ? (
@@ -53,12 +59,15 @@ const PostList = () => {
           </div>
         ) : (
           posts.map((post) => {
-            const user = users.find((u) => u.id === post.userId);
             return (
               <PostCard
                 key={post.id}
                 posts={post}
-                userName={user?.name}
+                userName={
+                  post.user ??
+                  users.find((u) => u.id === post.userId)?.name ??
+                  "Unknown User"
+                }
                 onDelete={handleDelete}
                 onEdit={handleEdit}
               />
