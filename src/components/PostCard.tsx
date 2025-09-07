@@ -19,6 +19,7 @@ const PostCard: React.FC<PostCardProps> = ({
   const [formData, setFormData] = useState({
     title: posts.title,
     body: posts.body,
+    user: userName,
   });
 
   const handleSave = () => {
@@ -26,6 +27,7 @@ const PostCard: React.FC<PostCardProps> = ({
       ...posts,
       title: formData.title,
       body: formData.body,
+      user: formData.user,
     };
     onEdit(updatePost);
     setIsEditing(false);
@@ -65,6 +67,20 @@ const PostCard: React.FC<PostCardProps> = ({
             value={formData.body}
             onChange={(e) => setFormData({ ...formData, body: e.target.value })}
           />
+          <label
+            htmlFor="user"
+            className="block text-sm font-medium text-gray-700"
+          >
+            User:
+          </label>
+          <input
+            type="text"
+            id="user"
+            name="user"
+            className="border-1 p-1 rounded m-1 w-full"
+            value={formData.user}
+            onChange={(e) => setFormData({ ...formData, user: e.target.value })}
+          />
         </>
       ) : (
         <>
@@ -76,7 +92,7 @@ const PostCard: React.FC<PostCardProps> = ({
 
           <div className="flex gap-2">
             <p className="text-gray-600 font-medium">User:</p>
-            <p className="text-gray-600">{userName ?? "Unknown User"}</p>
+            <p className="text-gray-600">{formData.user ?? "Unknown User"}</p>
           </div>
         </>
       )}

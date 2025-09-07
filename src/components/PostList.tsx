@@ -48,7 +48,7 @@ const PostList = () => {
               onClick={getPosts}
               className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-800 cursor-pointer transition-colors duration-500"
             >
-              Fetch Users
+              Fetch Posts
             </button>
           </div>
         ) : (
