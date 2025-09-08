@@ -39,7 +39,7 @@ const UserList = () => {
       <div className="flex justify-center m-2">
         <AddNewUser users={users} setUsers={setUsers} />
       </div>
-      <div className="border-2 w-xl m-auto"></div>
+      <div className="border-2 w-full m-auto"></div>
       <div className="m-7 flex flex-wrap justify-center gap-9">
         {users.length === 0 ? (
           <div>
