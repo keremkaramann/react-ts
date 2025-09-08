@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import type { Post, User } from "../types";
+import type { Post, User } from "../../types";
 import { useEffect, useState } from "react";
-import { fetchPosts, fetchUsers } from "../services/api";
+import { fetchPosts, fetchUsers } from "../../services/api";
 import PostCard from "./PostCard";
 import AddNewPost from "./AddNewPost";
 

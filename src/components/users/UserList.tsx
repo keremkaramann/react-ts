@@ -1,6 +1,6 @@
 import UserCard from "./UserCard";
-import type { User } from "../types";
-import { fetchUsers } from "../services/api";
+import type { User } from "../../types";
+import { fetchUsers } from "../../services/api";
 import { useEffect, useState } from "react";
 import AddNewUser from "./AddNewUser";
 import { Link } from "react-router-dom";

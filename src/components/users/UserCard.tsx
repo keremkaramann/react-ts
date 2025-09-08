@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { User } from "../types";
+import type { User } from "../../types";
 
 interface UserCardProps {
   user: User;

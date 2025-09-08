@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import PostList from "./components/PostList";
-import UserList from "./components/UserList";
+import PostList from "./components/posts/PostList";
+import UserList from "./components/users/UserList";
 import HomePage from "./components/HomePage";
 import ErrorPage from "./components/ErrorPage";
 

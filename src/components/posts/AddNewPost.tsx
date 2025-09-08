@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import type { Post } from "../types";
+import type { Post } from "../../types";
 
 interface Props {
   posts: Post[];

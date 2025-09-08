@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { Post } from "../types";
+import type { Post } from "../../types";
 
 interface PostCardProps {
   posts: Post;
