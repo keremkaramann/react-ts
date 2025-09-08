@@ -39,9 +39,7 @@ const PostList = () => {
       >
         Go Back to Home Page
       </Link>
-
       <h1 className="text-center m-5 font-bold text-3xl">Post List</h1>
-
       <div className="flex justify-center m-2">
         <AddNewPost posts={posts} setPosts={setPosts} />
       </div>
@@ -58,13 +56,13 @@ const PostList = () => {
             </button>
           </div>
         ) : (
-          posts.map((post) => {
+          posts?.map((post) => {
             const user = users.find((user) => user.id === post.userId);
             return (
               <PostCard
                 key={post.id}
                 posts={post}
-                userName={user ? user.name : "Unknown User"}
+                userName={post.user || (user ? user.name : "Unknown User")}
                 onDelete={handleDelete}
                 onEdit={handleEdit}
               />

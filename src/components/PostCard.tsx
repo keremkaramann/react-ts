@@ -76,7 +76,7 @@ const PostCard: React.FC<PostCardProps> = ({
           <div className="flex gap-2">
             <p className="text-gray-600 font-bold">User:</p>
             <p className="text-gray-600">
-              {formData.user ?? "Unknown User"}{" "}
+              {formData.user}
               <span className="font-medium">(User Id:{posts.userId})</span>
             </p>
           </div>
