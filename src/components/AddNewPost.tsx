@@ -20,7 +20,6 @@ const AddNewPost: React.FC<Props> = ({ posts, setPosts }) => {
     const newPost: Post & { user: string } = {
       id: Date.now(),
       title,
-      body,
       userId: Date.now(),
       user: user,
     };

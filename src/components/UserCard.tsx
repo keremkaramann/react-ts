@@ -81,7 +81,7 @@ const UserCard: React.FC<UserCardProps> = ({ user, onDelete, onEdit }) => {
       ) : (
         <>
           <div className="flex gap-2">
-            <p className="text-gray-600 font-bold">User Name: </p>
+            <p className="text-gray-600 font-bold">Name: </p>
             <p className="mb-2">{user.name}</p>
           </div>
           <div className="flex gap-2">

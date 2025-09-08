@@ -59,15 +59,12 @@ const PostList = () => {
           </div>
         ) : (
           posts.map((post) => {
+            const user = users.find((user) => user.id === post.userId);
             return (
               <PostCard
                 key={post.id}
                 posts={post}
-                userName={
-                  post.user ??
-                  users.find((u) => u.id === post.userId)?.name ??
-                  "Unknown User"
-                }
+                userName={user ? user.name : "Unknown User"}
                 onDelete={handleDelete}
                 onEdit={handleEdit}
               />

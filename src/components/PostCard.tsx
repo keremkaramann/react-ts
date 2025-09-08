@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Post } from "../types";
 
 interface PostCardProps {
@@ -30,6 +30,10 @@ const PostCard: React.FC<PostCardProps> = ({
     onEdit(updatePost);
     setIsEditing(false);
   };
+
+  useEffect(() => {
+    setFormData((prev) => ({ ...prev, user: userName }));
+  }, [userName]);
 
   return (
     <div className="bg-white shadow-lg rounded-lg p-4 w-3xl">
